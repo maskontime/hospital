@@ -1,8 +1,17 @@
 {% extends "base.html" %}
 {%load static%}
-{% block title %}HOME |{% endblock %}
+{% block title %}HOME|{% endblock %}
 {% block content %}
-<img src="{% static 'images/doctor.jpg' %}" alt="Doctor">
-
 <h2>Register Form </h2>
+ {% comment %} <img src="{% static 'images/doctor.jpg' %}" alt="Doctor"> {% endcomment %}
+
+
+ <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Register</button>
+ </form>
+ <p>Already have an account ?<a href="{%url 'login'%}">Login here</a></p>
+
+
 {% endblock %}
